@@ -8,6 +8,8 @@ type ApiResponse<T> = {
 };
 
 export async function apiCall<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
+  const timeoutController = new AbortController();
+  const timeoutId = setTimeout(() => timeoutController.abort(), 8_000);
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
     ...((options.headers as Record<string, string>) || {}),
@@ -45,6 +47,7 @@ export async function apiCall<T>(endpoint: string, options: RequestInit = {}): P
       ...options,
       headers,
       credentials: "include",
+      signal: options.signal ?? timeoutController.signal,
     });
 
     console.log("[API] Response status:", response.status, response.statusText);
@@ -86,6 +89,8 @@ export async function apiCall<T>(endpoint: string, options: RequestInit = {}): P
       throw error;
     }
     throw new Error("Unknown error occurred");
+  } finally {
+    clearTimeout(timeoutId);
   }
 }
 

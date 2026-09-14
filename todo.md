@@ -21,3 +21,6 @@
 - [x] Write a repository README covering setup, capabilities, architecture, and usage
 - [x] Write a detailed project implementation summary explaining completed functionality and current limitations
 - [x] Publish the new documentation files to the siddique-ansari3/dhule-drive repository
+- [x] Document a safe local `.env` template without deployed credentials
+- [x] Document local MySQL database creation, migration, and startup steps
+- [ ] Publish the local setup materials to the GitHub repository

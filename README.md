@@ -59,6 +59,8 @@ pnpm dev
 
 The development process starts the API server and Expo web bundler together. Use the generated Expo QR code to open the mobile project in Expo Go, or open the local Expo web address in a browser.
 
+For the complete safe `.env` template, local MySQL setup, migration commands, phone-testing configuration, and owner-authentication notes, read [LOCAL_SETUP.md](./LOCAL_SETUP.md).
+
 ### Common commands
 
 | Command | Purpose |
